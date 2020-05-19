@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import Jumbotron from "../Jumbotron"
 
 function Nav(props) {
@@ -6,12 +7,12 @@ function Nav(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <h3 className="h3 text-light mr-5">Google-Books</h3>
-        <a className="navbar-brand" href="/">
+        <Link to="/search" className="navbar-brand">
           Search
-        </a>
-        <a className="navbar-brand" href="/">
+        </Link>
+        <Link to="/favorites" className="navbar-brand">
           Favorites
-        </a>
+        </Link>
       </nav>
 
       <Jumbotron>
