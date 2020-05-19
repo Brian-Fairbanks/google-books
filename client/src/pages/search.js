@@ -5,20 +5,14 @@ import Book from "../components/favorite"
 
 function Search() {
   const [books, setBooks] = useState({items:[]})
-  const [formObject, setFormObject] = useState({})
+  const [formObject, setFormObject] = useState({
+    title:"",
+    authors:[],
+    description:"",
+    link:"",
+    image:""
+  })
   const [search, setSearch] = useState("")
-
-  // useEffect(() => {
-  //   loadBooks()
-  // }, [])
-
-  // function loadBooks() {
-  //   API.getBooks()
-  //     .then(res => {
-  //       setBooks(res.data)
-  //     })
-  //     .catch(err => console.log(err));
-  // };
 
   function handleSearch(input){
     setSearch(input);
@@ -32,6 +26,21 @@ function Search() {
       })
       .catch(err => console.log(err));
   };
+
+  function handleAdd(index){
+    const book = books.items[index];
+    setFormObject({
+      title:book.volumeInfo.title,
+      image:book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x195",
+      link:book.volumeInfo.infoLink,
+      description:book.volumeInfo.description,
+      authors:book.volumeInfo.authors
+    })
+  };
+
+  useEffect(() => {
+    API.saveBook(formObject)
+  }, [formObject]);
 
 
 
@@ -47,7 +56,7 @@ function Search() {
       <hr/>
       <h3>Results</h3>
       {console.log(books)}
-      {books.items.map(book => {
+      {books.items.map( (book, index) => {
         return (
           <Book 
             title={book.volumeInfo.title}
@@ -56,7 +65,7 @@ function Search() {
             description={book.volumeInfo.description}
             author={book.volumeInfo.authors}
             icon = {"fas fa-heart"}
-            action = {()=>{}}
+            action = {()=>{handleAdd(index)}}
           />
         )}
       )}
