@@ -34,7 +34,7 @@ function Search() {
       image:book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x195",
       link:book.volumeInfo.infoLink,
       description:book.volumeInfo.description,
-      authors:book.volumeInfo.authors
+      author:book.volumeInfo.authors
     })
   };
 
@@ -48,10 +48,7 @@ function Search() {
     <div className="container text-center">
       <h3>Book Search</h3>
       <form className="input-group d-flex flex justify-content-center mb-5">
-        <input className="input-group-text" onChange={(event) => handleSearch(event.currentTarget.value)}></input>
-        <div className="input-group-append">
-          <button className="btn btn-primary"><i className="fas fa-search"></i></button>
-        </div>
+        <input className="input-group-text" placeholder="Search" onChange={(event) => handleSearch(event.currentTarget.value)}></input>
       </form>
       <hr/>
       <h3>Results</h3>
