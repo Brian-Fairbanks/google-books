@@ -1,7 +1,7 @@
 import React from "react";
 import Jumbotron from "../Jumbotron"
 
-function Nav() {
+function Nav(props) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">

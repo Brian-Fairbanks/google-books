@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
+import Favorite from "../components/favorite";
 import API from "../utils/API";
 
-function Search() {
+function Favorites() {
   const [books, setBooks] = useState([])
-  const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
     loadBooks()
@@ -21,18 +21,19 @@ function Search() {
 
   return (
     <div className="container text-center">
-      <h3>Book Search</h3>
-      <form className="input-group d-flex flex justify-content-center mb-5">
-        <input className="input-group-text"></input>
-        <div className="input-group-append">
-          <button className="btn btn-primary"><i className="fas fa-search"></i></button>
-        </div>
-      </form>
-      <hr/>
-      <h3>Results</h3>
       {console.log(books)}
+      <h3>Book Search</h3>
+      {books.map(book => {
+        return (<Favorite
+          title={book.title}
+          image={book.image}
+          link={book.link}
+          description={book.description}
+          author={book.authors}
+        />)
+      })}
     </div>
   );
 }
 
-export default Search;
+export default Favorites;
