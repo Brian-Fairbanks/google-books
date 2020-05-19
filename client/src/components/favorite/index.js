@@ -4,7 +4,7 @@ function Book({ title, image, description, link, author, icon, action }) {
   return (
     <div className="card mb-2 overflow-hidden">
       <div className="card-header bg-secondary text-light"> 
-        <i className={icon+" float-right m-2"}></i>
+        <i className={icon+" float-right m-2"} onClick={action}></i>
         <a className="text-light" href={link}>
           <i className="fas fa-external-link-alt float-right m-2"></i>
         </a>
