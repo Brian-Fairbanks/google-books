@@ -36,3 +36,11 @@ Manually tested.  No additinal frameworks used.
 
 ## Demo
 This page is hosted on Heroku : [https://bkf-books.herokuapp.com/](https://bkf-books.herokuapp.com/)
+
+View on a Mobile Display:
+
+![smallDisplay](https://github.com/Brian-Fairbanks/google-books/blob/master/assets/small.PNG?raw=true)
+
+View on a Large Display: 
+![largeDisplay](https://github.com/Brian-Fairbanks/google-books/blob/master/assets/large.PNG?raw=true)
+
