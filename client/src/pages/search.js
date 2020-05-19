@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
+import Favorite from "../components/favorite"
 
 function Search() {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState({items:[]})
   const [formObject, setFormObject] = useState({})
   const [search, setSearch] = useState("")
 
@@ -21,15 +22,16 @@ function Search() {
 
   function handleSearch(input){
     setSearch(input);
+    searchBooks();
   }
 
-  // function loadBooks() {
-  //   API.getBooks()
-  //     .then(res => {
-  //       setBooks(res.data)
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+  function searchBooks() {
+    API.googleSearch(search)
+      .then(res => {
+        setBooks(res.data)
+      })
+      .catch(err => console.log(err));
+  };
 
 
   return (
@@ -43,7 +45,18 @@ function Search() {
       </form>
       <hr/>
       <h3>Results</h3>
-      {search}
+      {console.log(books)}
+      {books.items.map(book => {
+        return (
+          <Favorite 
+            title={book.volumeInfo.title}
+            image={book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/250x300"}
+            link={book.volumeInfo.infoLink}
+            description={book.volumeInfo.description}
+            author={book.volumeInfo.authors}
+          />
+        )}
+      )}
     </div>
   );
 }
