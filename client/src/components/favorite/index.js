@@ -11,7 +11,7 @@ function Book({ title, image, description, link, author, icon, action }) {
         <h2 className="">
           {title}
         </h2>
-        <h4>{author}</h4>
+        <h5>{author}</h5>
       </div>
       <div>
         <img src={image} className="float-left mr-4" height="200" width="130" alt={title} />
