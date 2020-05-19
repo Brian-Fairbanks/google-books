@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import Book from "../components/favorite"
 
@@ -39,7 +38,9 @@ function Search() {
   };
 
   useEffect(() => {
-    API.saveBook(formObject)
+    if(formObject.title){
+      API.saveBook(formObject)
+    }
   }, [formObject]);
 
 
@@ -52,7 +53,6 @@ function Search() {
       </form>
       <hr/>
       <h3>Results</h3>
-      {console.log(books)}
       {books.items.map( (book, index) => {
         return (
           <Book 
