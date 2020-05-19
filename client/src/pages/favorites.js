@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import Favorite from "../components/favorite";
+import Book from "../components/favorite";
 import API from "../utils/API";
 
 function Favorites() {
@@ -21,15 +21,16 @@ function Favorites() {
 
   return (
     <div className="container text-center">
-      {console.log(books)}
-      <h3>Book Search</h3>
+      <h3>Favorites</h3>
       {books.map(book => {
-        return (<Favorite
+        return (<Book
           title={book.title}
           image={book.image}
           link={book.link}
           description={book.description}
           author={book.authors}
+          icon = {"fas fa-trash"}
+          action = {()=>{}}
         />)
       })}
     </div>

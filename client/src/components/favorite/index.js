@@ -1,23 +1,26 @@
 import React from "react";
 
-function Favorite({ title, image, description, link, author }) {
+function Book({ title, image, description, link, author, icon, action }) {
   return (
-    <div className="card">
+    <div className="card mb-2 overflow-hidden">
       <div className="card-header bg-secondary text-light"> 
-        <h2 className=""> {title}</h2>
+        <i className={icon+" float-right m-2"}></i>
+        <a className="text-light" href={link}>
+          <i className="fas fa-external-link-alt float-right m-2"></i>
+        </a>
+        <h2 className="">
+          {title}
+        </h2>
         <h4>{author}</h4>
       </div>
       <div>
-        <img src={image} className="float-left mr-4" alt={title} />
+        <img src={image} className="float-left mr-4" height="200" width="130" alt={title} />
         <div className="p-4">
           {description}
         </div>
-      </div>
-      <div className="card-footer">
-        <a href={link}>{link}</a>
       </div>
     </div>
   )
 }
 
-export default Favorite
+export default Book

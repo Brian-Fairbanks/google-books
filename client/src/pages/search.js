@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
-import Favorite from "../components/favorite"
+import Book from "../components/favorite"
 
 function Search() {
   const [books, setBooks] = useState({items:[]})
@@ -48,12 +48,14 @@ function Search() {
       {console.log(books)}
       {books.items.map(book => {
         return (
-          <Favorite 
+          <Book 
             title={book.volumeInfo.title}
-            image={book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/250x300"}
+            image={book.volumeInfo.imageLinks? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x195"}
             link={book.volumeInfo.infoLink}
             description={book.volumeInfo.description}
             author={book.volumeInfo.authors}
+            icon = {"fas fa-heart"}
+            action = {()=>{}}
           />
         )}
       )}
