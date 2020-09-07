@@ -1,4 +1,4 @@
-# Employee Directory ![react badge](https://img.shields.io/static/v1?label=react.js&message=enabled&color=success)![MongoDB](https://img.shields.io/static/v1?label=MongoDB&message=enabled&color=success)
+# Google Books![react badge](https://img.shields.io/static/v1?label=react.js&message=enabled&color=success)![MongoDB](https://img.shields.io/static/v1?label=MongoDB&message=enabled&color=success)
 
 ## Description
 This react powered web app allows a user to search, and favorite books by using the google books api.
